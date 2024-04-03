@@ -1,0 +1,32 @@
+{
+    "places":[
+        {
+            "name": "Chinguacosy Park",
+            "description": "This is one of the parks ever",
+            "price": 0,
+            "discontinued": false,
+            "categories": [0],
+            "times of operation": "24/7",
+            "location": {"lon":123.456, "lat":456.789},
+            "image": ".png",
+            "link": "example.com"
+        },
+        {
+            "name": "High Park",
+            "description": "This is one of the other parks ever",
+            "price": 2,
+            "discontinued": false,
+            "categories": [0],
+            "times of operation": "12/7",
+            "location": {"lon":456.123, "lat":789.456},
+            "image": ".jpg",
+            "link": "example.com"
+        }
+    ],
+    "categories":[
+        {
+            "id":0,
+            "name":"Park"
+        }
+    ]
+}

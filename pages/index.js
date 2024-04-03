@@ -1,65 +1,47 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import { useState, useEffect } from "react";
 
 export default function Home() {
+
+  const [searchResults, setSearchResults] = useState();
+  const [error, setError] = useState(false);
+
+  var searchQuery = "Park FREE";
+
+  useEffect(()=>{
+    fetch(`api/search?search=${searchQuery}`, {
+      method: "GET"
+    }).then(res=>{
+      if (!res.ok){
+        return "Error"
+      }
+      return res.json()
+    }).then(data=>{
+      setError(data == "Error");
+      setSearchResults(data.message)
+    })
+  }, []) //https://www.freecodecamp.org/news/prevent-infinite-loops-when-using-useeffect-in-reactjs/#:~:text=useEffect%20checks%20if%20the%20dependencies,if%20state%20is%20being%20updated.
+
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Aaaaa</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      {
+        error?<>
+          Sorry, it looks like search is not working at this time. 
+        </>:<>
+        {
+          searchResults.map(result=>{
+            return <>Name: {result.name}<br/></>
+          })
+        }</>
+      }
 
-        <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
-        </a>
-      </footer>
-
+      
       <style jsx>{`
         main {
           padding: 5rem 0;
