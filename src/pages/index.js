@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 export default function Home() {
 
   const [searchResults, setSearchResults] = useState();
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(true);
 
-  var searchQuery = "Park FREE";
+  var searchQuery = "Parks frfdsfsdj";
 
   useEffect(()=>{
     fetch(`api/search?search=${searchQuery}`, {
@@ -31,12 +31,13 @@ export default function Home() {
       </Head>
 
       {
-        error?<>
+        (error || searchResults.length == 0)?<>
           Sorry, it looks like search is not working at this time. 
         </>:<>
         {
-          searchResults.map(result=>{
-            return <>Name: {result.name}<br/></>
+          searchResults.map((result, index)=>{
+            // https://sentry.io/answers/unique-key-prop/
+            return <span key={index}>Name: {result.name}<br/></span>
           })
         }</>
       }
