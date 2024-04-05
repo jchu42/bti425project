@@ -22,53 +22,53 @@ export default function handler(req, res) {
 
             // category - if is a category, change element to be the category id
             if (categories.find(category=>{
-                if (category.description == element.toLowerCase() || category.description + "s" == element.toLowerCase()){
-                    element = category.id;
+                if (category.Description == element.toLowerCase() || category.Description + "s" == element.toLowerCase()){
+                    element = category.ID;
                     return true;
                 }
                 return false;
             })){
-                newResults = searchResults.filter(result=>result.categories.includes(element));
+                newResults = searchResults.filter(result=>result.Categories.includes(element));
             }
             // price
             else if(/\d+/.test(element)){
                 price = element.match(/\d+/)[0];
                 if (element.includes("="))
-                    newResults.push(...searchResults.filter(result=>result.price == price));
+                    newResults.push(...searchResults.filter(result=>result.Price == price));
                 if (element.includes(">"))
-                    newResults.push(...searchResults.filter(result=>result.price > price));
+                    newResults.push(...searchResults.filter(result=>result.Price > price));
                 if (element.includes("<"))
-                    newResults.push(...searchResults.filter(result=>result.price < price));
+                    newResults.push(...searchResults.filter(result=>result.Price < price));
 
                 if (!beenSorted && newResults.length > 0){
                     // sort
-                    newResults.sort((a, b)=>a.price - b.price); // ascending order = lowest cost first
+                    newResults.sort((a, b)=>a.Price - b.Price); // ascending order = lowest cost first
                     beenSorted = true;
                 }
             }
             // name
-            else if (searchResults.find(result=>result.name.includes(element))){
-                newResults = searchResults.filter(result=>result.name.includes(element));
+            else if (searchResults.find(result=>result.Name.includes(element))){
+                newResults = searchResults.filter(result=>result.Name.includes(element));
 
                 if (!beenSorted && newResults.length > 0){
                     // sort
-                    newResults.sort((a, b)=>a.name.search(element) - b.name.search(element)); // lowest index found first
+                    newResults.sort((a, b)=>a.Name.search(element) - b.Name.search(element)); // lowest index found first
                     beenSorted = true;
                 }
             }
             // description
-            else if (searchResults.find(result=>result.description.includes(element))){
-                newResults = searchResults.filter(result=>result.description.includes(element));
+            else if (searchResults.find(result=>result.Description.includes(element))){
+                newResults = searchResults.filter(result=>result.Description.includes(element));
 
                 if (!beenSorted && newResults.length > 0){
                     // sort
-                    newResults.sort((a, b)=>a.description.search(element) - b.description.search(element)); // lowest index found first
+                    newResults.sort((a, b)=>a.Description.search(element) - b.Description.search(element)); // lowest index found first
                     beenSorted = true;
                 }
             }
             // id
-            else if (searchResults.find(result=>result.description.includes(element))){
-                newResults = searchResults.filter(result=>result.id == element);
+            else if (searchResults.find(result=>result.Description.includes(element))){
+                newResults = searchResults.filter(result=>result.ID == element);
             }
 
             // if search element results in search results being empty, don't apply that search element

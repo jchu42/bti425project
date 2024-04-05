@@ -1,25 +1,49 @@
 export default[
     {
-        "id": "prod-001",
-        "name": "Chinguacosy Park",
-        "description": "This is one of the parks ever",
-        "price": 0,
-        "discontinued": false,
-        "categories": ["cat-01"],
-        "times of operation": "24/7",
-        "location": {"lon":123.456, "lat":456.789},
-        "image": ".png",
-        "link": "example.com"
+        "ID": 1,
+        "Name": "Chinguacosy Park",
+        "Description": "Beautiful park with walking trails, picnic areas, and playgrounds.",
+        "Price": 0,
+        "Discontinued": false,
+        "Categories": [1, 6, 9],
+        "Times of Operation": "Dawn to Dusk",
+        "Location": {
+            "latitude": 43.721138,
+            "longitude": -79.791007
+        },
+        "Image": "",
+        "Website link": "https://www.brampton.ca/EN/Residents/Recreation/Community-Centres/Chinguacousy-Park/pages/welcome.aspx"
+    },
+
+    {
+        "ID": 2,
+        "Name": "Highpark",
+        "Description": "Large urban park featuring sports fields, a zoo, and hiking trails.",
+        "Price": 0,
+        "Discontinued": false,
+        "Categories": [1, 6, 9],
+        "Times of Operation": "Dawn to Dusk",
+        "Location": {
+            "latitude": 43.646546,
+            "longitude": -79.463081
+        },
+        "Image": "",
+        "Website link": "https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/high-park/"
     },
     {
-        "id": "prod-002",
-        "name": "High Park",
-        "description": "This is one of the other parks ever",
-        "price": 2,
-        "categories": ["cat-01"],
-        "times of operation": "12/7",
-        "location": {"lon":456.123, "lat":789.456},
-        "image": ".jpg",
-        "link": "example.com"
+        "ID": 3,
+        "Name": "Colonel Samuel Smith Park",
+        "Description": "Beautiful waterfront park with walking trails and picnic areas.",
+        "Price": 0,
+        "Discontinued": false,
+        "Categories": [1, 6, 9],
+        "Times of Operation": "Dawn to Dusk",
+        "Location": {
+            "latitude": 43.594336,
+            "longitude": -79.514838
+        },
+        "Image": "",
+        "Website link": "https://www.toronto.ca/data/parks/prd/facilities/complex/466/index.html"
     }
+
 ]
