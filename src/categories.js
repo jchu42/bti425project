@@ -1,46 +1,46 @@
 export default[
     {
         "ID": "cat-01",
-        "Description": "Park"
+        "Description": "park"
     },
     {
         "ID": "cat-02",
-        "Description": "Free"
+        "Description": "free"
     },
     {
         "ID": "cat-03",
-        "Description": "Paid"
+        "Description": "paid"
     },
     {
         "ID": "cat-04",
-        "Description": "Fishing"
+        "Description": "fishing"
     },
     {
         "ID": "cat-05",
-        "Description": "Hiking"
+        "Description": "hiking"
     },
     {
         "ID": "cat-06",
-        "Description": "Exercise"
+        "Description": "exercise"
     },
     {
         "ID": "cat-07",
-        "Description": "Animals"
+        "Description": "animals"
     },
     {
         "ID": "cat-08",
-        "Description": "Outdoors"
+        "Description": "outdoors"
     },
     {
         "ID": "cat-09",
-        "Description": "Indoors"
+        "Description": "indoors"
     },
     {
         "ID": "cat-10",
-        "Description": "Downtown"
+        "Description": "downtown"
     },
     {
         "ID": "cat-11",
-        "Description": "Shopping"
+        "Description": "shopping"
     }
 ]

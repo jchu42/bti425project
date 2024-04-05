@@ -7,7 +7,7 @@ export default function Home() {
   const [searchResults, setSearchResults] = useState();
   const [error, setError] = useState(true);
 
-  var searchQuery = "Parks frfdsfsdj";
+  var searchQuery = "park";
 
   useEffect(()=>{
     fetch(`api/search?search=${searchQuery}`, {
