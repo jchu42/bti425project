@@ -32,17 +32,17 @@ export default function handler(req, res) {
             }
             // price
             else if(/\d+/.test(element)){
-                price = element.match(/\d+/)[0];
+                var price = element.match(/\d+/)[0];
                 if (element.includes("="))
                     newResults.push(...searchResults.filter(result=>result.Price == price));
                 if (element.includes(">"))
                     newResults.push(...searchResults.filter(result=>result.Price > price));
-                if (element.includes("<"))
+                else//if (element.includes("<"))
                     newResults.push(...searchResults.filter(result=>result.Price < price));
 
                 if (!beenSorted && newResults.length > 0){
                     // sort
-                    newResults.sort((a, b)=>a.Price - b.Price); // ascending order = lowest cost first
+                    newResults.sort((a, b)=>a.Price - b.Price); // ascending order = always lowest cost first
                     beenSorted = true;
                 }
             }

@@ -182,8 +182,8 @@ export default[
     },
     {
         "ID": 13,
-        "Name": "Toronto Zoo",
-        "Description": "The Toronto Zoo, Canada's largest zoo, boasts diverse wildlife exhibits and educational programs, providing an engaging experience for visitors of all ages.",
+        "Name": "The Ontario Science Center",
+        "Description": "The Ontario Science Centre is a hub of interactive exhibits and immersive experiences, inspiring curiosity and discovery through hands-on learning for visitors of all ages.",
         "Price": 22.00,
         "Discontinued": false,
         "Categories": ["cat-03", "cat-07", "cat-09", "cat-10"],

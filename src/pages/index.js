@@ -7,7 +7,7 @@ export default function Home() {
   const [searchResults, setSearchResults] = useState();
   const [error, setError] = useState(true);
 
-  var searchQuery = "park";
+  var searchQuery = ">20";
 
   useEffect(()=>{
     fetch(`api/search?search=${searchQuery}`, {
@@ -37,7 +37,7 @@ export default function Home() {
         :
         <>{searchResults.map((result, index)=>{
             // https://sentry.io/answers/unique-key-prop/
-            return <span key={index}>Name: {result.Name}<br/></span>
+            return <span key={index}>Name: {result.Name}, Price: {result.Price}<br/></span>
         })}</>
       }
 
