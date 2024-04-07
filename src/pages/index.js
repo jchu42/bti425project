@@ -1,11 +1,15 @@
+
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import {useAtom} from 'jotai';
 import { useState, useEffect } from "react";
+import App from "../app.js";
+import {dataAtom, errorAtom} from '../store.js';
 
 export default function Home() {
 
-  const [searchResults, setSearchResults] = useState();
-  const [error, setError] = useState(true);
+  const [searchResults, setSearchResults] = useAtom(dataAtom);
+  const [error, setError] = useAtom(errorAtom);
 
   var searchQuery = ">20";
 
@@ -30,6 +34,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <App />
+
+      {/*
       {
         (error || searchResults.length == 0)
         ?
@@ -39,7 +46,7 @@ export default function Home() {
             // https://sentry.io/answers/unique-key-prop/
             return <span key={index}>Name: {result.Name}, Price: {result.Price}<br/></span>
         })}</>
-      }
+      } */}
 
       
       <style jsx>{`

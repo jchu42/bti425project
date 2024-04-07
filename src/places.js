@@ -11,13 +11,13 @@ export default[
             "latitude": 43.725274,
             "longitude": -79.722409
         },
-        "Image": "",
+        "Image": "https://www1.brampton.ca/EN/residents/Recreation/Community-Centres/PublishingImages/centre-banners/centre-chingpark.jpg?RenditionID=5",
         "Website link": "https://www.brampton.ca/EN/Residents/Recreation/Community-Centres/Chinguacousy-Park/pages/welcome.aspx"
     },
 
     {
         "ID": 2,
-        "Name": "Highpark",
+        "Name": "High Park",
         "Description": "A jewel in the city’s park system, residents and visitors can enjoy its many wildlife, attractions, playgrounds and natural features year-round.",
         "Price": 0,
         "Discontinued": false,
@@ -27,7 +27,7 @@ export default[
             "latitude": 43.646548,
             "longitude": -79.463690
         },
-        "Image": "",
+        "Image": "https://www.highparktoronto.com/images/parks/home/579.jpg",
         "Website link": "https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/high-park/"
     },
     {
@@ -42,7 +42,7 @@ export default[
             "latitude": 43.591398,
             "longitude": -79.513386
         },
-        "Image": "",
+        "Image": "https://www.toronto.ca/data/parks/img/466/1.jpg",
         "Website link": "https://www.toronto.ca/data/parks/prd/facilities/complex/466/index.html"
     },
     {
@@ -57,7 +57,7 @@ export default[
             "latitude": 43.736206,
             "longitude": -79.79281
         },
-        "Image": "",
+        "Image": "https://trcaca.s3.ca-central-1.amazonaws.com/app/uploads/2016/02/17185056/HEART_LAKE_NEW_HERO_IMAGE.jpg",
         "Website link": "https://trca.ca/parks/heart-lake-conservation-area/"
     },
     {
@@ -72,7 +72,7 @@ export default[
             "latitude": 43.647395,
             "longitude": -79.779784
         },
-        "Image": "",
+        "Image": "https://www.brampton.ca/EN/residents/Recreation/Community-Centres/PublishingImages/centre-banners/banner-eldorado.jpg?RenditionID=5",
         "Website link": "https://www.brampton.ca/EN/residents/Recreation/Community-Centres/Pages/Eldorado-Park.aspx"
     },
     {
@@ -87,7 +87,7 @@ export default[
             "latitude": 43.562870,
             "longitude": -79.557951
         },
-        "Image": "",
+        "Image": "https://www.mississauga.ca/wp-content/uploads/2021/04/28082429/Promenade_Park_Banner.jpg",
         "Website link": "https://www.mississauga.ca/events-and-attractions/parks/lakefront-promenade/"
     },
     {
@@ -102,7 +102,7 @@ export default[
             "latitude": 43.755024,
             "longitude": -79.642492
         },
-        "Image": "",
+        "Image": "https://trcaca.s3.ca-central-1.amazonaws.com/app/uploads/2016/04/17183734/RS8074_TRCA-CAs-JULY-29-2012_037-lpr.jpg",
         "Website link": "https://trca.ca/parks/claireville-conservation-area/"
     },
     {
@@ -117,7 +117,7 @@ export default[
             "latitude": 43.288967,
             "longitude": -79.873140
         },
-        "Image": "",
+        "Image": "https://www.rbg.ca/app/uploads/ServiceBerryTrees-HendriePark-scaled-2200x1467.jpg",
         "Website link": "https://www.rbg.ca/"
     },
     {
@@ -132,7 +132,7 @@ export default[
             "latitude": 43.705890,
             "longitude": -79.231713
         },
-        "Image": "",
+        "Image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,g_xy_center,h_634,q_65,w_1920,x_2480,y_2284/v1/clients/toronto/167_3_4816_jpeg_fc72e7b7-064e-4690-ab2f-0762667a7712.jpg",
         "Website link": "https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/scarborough-bluffs/"
     },
     {
@@ -147,7 +147,7 @@ export default[
             "latitude": 43.622977,
             "longitude": -79.377170
         },
-        "Image": "",
+        "Image": "https://www.centreisland.ca/uploads/slideshow/28c7bf2f086bb8da8b544e0d168714c5.jpg",
         "Website link": "https://www.centreisland.ca/centreville-amusement-park"
     },
     {
@@ -162,7 +162,7 @@ export default[
             "latitude": 43.137022,
             "longitude": -79.055590
         },
-        "Image": "",
+        "Image": "https://www.niagaraparks.com/media/2016/11/butterfly-emergence-window.jpg",
         "Website link": "https://www.niagaraparks.com/visit/attractions/butterfly-conservatory/"
     },
     {
@@ -177,7 +177,7 @@ export default[
             "latitude": 43.817867,
             "longitude": -79.185437
         },
-        "Image": "",
+        "Image": "https://www.torontozoo.com/!/img/pg/attractions/kangaroo-walk-thru-423.jpg",
         "Website link": "https://www.torontozoo.com/"
     },
     {
@@ -192,7 +192,7 @@ export default[
             "latitude": 43.716935,
             "longitude": -79.338926
         },
-        "Image": "",
+        "Image": "https://www.ontariosciencecentre.ca/media/1021/building.jpg",
         "Website link": "https://www.ontariosciencecentre.ca/"
     },
     {
@@ -207,7 +207,7 @@ export default[
             "latitude":43.667710,
             "longitude": -79.394777
         },
-        "Image": "",
+        "Image": "https://d3qvqlc701gzhm.cloudfront.net/full/f723d64a8ed4399d41f4fc3d44afa36636124bdfa4f2db24cabefc8743d080e9.jpg",
         "Website link": "https://www.rom.on.ca/en"
     },
     {
@@ -222,7 +222,7 @@ export default[
             "latitude": 43.642581,
             "longitude": -79.387061
         },
-        "Image": "",
+        "Image": "https://www.juicer.io/api/posts/478051783/images.jpg?external_id=C1j8_kvA79W&s=19433b9f29af00b05f0f14853d11acb6501cf523",
         "Website link": "https://www.cntower.ca/"
     }
 ]   
