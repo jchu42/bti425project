@@ -1,4 +1,4 @@
-
+import { Card, Form, Alert, Button } from "react-bootstrap";
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import {useAtom} from 'jotai';
@@ -11,9 +11,20 @@ export default function Home() {
   const [searchResults, setSearchResults] = useAtom(dataAtom);
   const [error, setError] = useAtom(errorAtom);
 
-  var searchQuery = ">20";
+  const [searchQuery, setSearchQuery] = useState("");
 
-  useEffect(()=>{
+  //var searchQuery = "";
+
+  // initial search
+  useEffect(doSearch, []) //https://www.freecodecamp.org/news/prevent-infinite-loops-when-using-useeffect-in-reactjs/#:~:text=useEffect%20checks%20if%20the%20dependencies,if%20state%20is%20being%20updated.
+
+  // button search
+  async function handleSubmit(e) {
+    e.preventDefault();
+    doSearch();
+  }
+
+  function doSearch() {
     fetch(`api/search?search=${searchQuery}`, {
       method: "GET"
     }).then(res=>{
@@ -25,7 +36,7 @@ export default function Home() {
       setError(data == "Error");
       setSearchResults(data.message)
     })
-  }, []) //https://www.freecodecamp.org/news/prevent-infinite-loops-when-using-useeffect-in-reactjs/#:~:text=useEffect%20checks%20if%20the%20dependencies,if%20state%20is%20being%20updated.
+  }
 
   return (
     <div className={styles.container}>
@@ -33,6 +44,12 @@ export default function Home() {
         <title>Aaaaa</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <Form onSubmit={handleSubmit}> {/* search should be moved to header */}
+        {/* <Form.Label>Search: </Form.Label> */}
+        <Form.Control type="text" value={searchQuery} id="search" name="search" onChange={e=>setSearchQuery(e.target.value)} />
+        <Button variant="primary" className="pull-right" type="submit">Search</Button>
+      </Form>
 
       <App />
 

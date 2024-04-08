@@ -21,7 +21,7 @@ export default function App() {
             <>{searchResults.map((result, index)=>{
                 // https://sentry.io/answers/unique-key-prop/
 
-                // TODO: INSERT CARD STUFF HERE!!!
+                // CARD STUFF HERE!!!
                 return <span key={index}>Name: {result.Name}, Price: {result.Price}<br/></span>
             })}</>
         }
