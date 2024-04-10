@@ -11,7 +11,9 @@
     "next": "latest",
     "react": "18.2.0",
     "react-bootstrap": "^2.10.2",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.51.2",
+    "react-phone-number-input": "^3.3.12"
   },
   "engines": {
     "node": ">=18"
