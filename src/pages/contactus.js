@@ -18,6 +18,7 @@ export default function ContactUs() {
   function submitForm(data) {
     // dummy function
     console.log(data);
+    // save data to database?
   }
 
   return (
