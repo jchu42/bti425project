@@ -12,7 +12,7 @@ export default[
             "longitude": -79.722409
         },
         "Image": "https://www1.brampton.ca/EN/residents/Recreation/Community-Centres/PublishingImages/centre-banners/centre-chingpark.jpg?RenditionID=5",
-        "Website link": "https://www.brampton.ca/EN/Residents/Recreation/Community-Centres/Chinguacousy-Park/pages/welcome.aspx"
+        "WebsiteLink": "https://www.brampton.ca/EN/Residents/Recreation/Community-Centres/Chinguacousy-Park/pages/welcome.aspx"
     },
 
     {
@@ -28,7 +28,7 @@ export default[
             "longitude": -79.463690
         },
         "Image": "https://www.highparktoronto.com/images/parks/home/579.jpg",
-        "Website link": "https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/high-park/"
+        "WebsiteLink": "https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/high-park/"
     },
     {
         "ID": "place-003",
@@ -43,7 +43,7 @@ export default[
             "longitude": -79.513386
         },
         "Image": "https://www.toronto.ca/data/parks/img/466/1.jpg",
-        "Website link": "https://www.toronto.ca/data/parks/prd/facilities/complex/466/index.html"
+        "WebsiteLink": "https://www.toronto.ca/data/parks/prd/facilities/complex/466/index.html"
     },
     {
         "ID": "place-004",
@@ -58,7 +58,7 @@ export default[
             "longitude": -79.79281
         },
         "Image": "https://trcaca.s3.ca-central-1.amazonaws.com/app/uploads/2016/02/17185056/HEART_LAKE_NEW_HERO_IMAGE.jpg",
-        "Website link": "https://trca.ca/parks/heart-lake-conservation-area/"
+        "WebsiteLink": "https://trca.ca/parks/heart-lake-conservation-area/"
     },
     {
         "ID": "place-005",
@@ -73,7 +73,7 @@ export default[
             "longitude": -79.779784
         },
         "Image": "https://www.brampton.ca/EN/residents/Recreation/Community-Centres/PublishingImages/centre-banners/banner-eldorado.jpg?RenditionID=5",
-        "Website link": "https://www.brampton.ca/EN/residents/Recreation/Community-Centres/Pages/Eldorado-Park.aspx"
+        "WebsiteLink": "https://www.brampton.ca/EN/residents/Recreation/Community-Centres/Pages/Eldorado-Park.aspx"
     },
     {
         "ID": "place-006",
@@ -88,7 +88,7 @@ export default[
             "longitude": -79.557951
         },
         "Image": "https://www.mississauga.ca/wp-content/uploads/2021/04/28082429/Promenade_Park_Banner.jpg",
-        "Website link": "https://www.mississauga.ca/events-and-attractions/parks/lakefront-promenade/"
+        "WebsiteLink": "https://www.mississauga.ca/events-and-attractions/parks/lakefront-promenade/"
     },
     {
         "ID": "place-007",
@@ -103,7 +103,7 @@ export default[
             "longitude": -79.642492
         },
         "Image": "https://trcaca.s3.ca-central-1.amazonaws.com/app/uploads/2016/04/17183734/RS8074_TRCA-CAs-JULY-29-2012_037-lpr.jpg",
-        "Website link": "https://trca.ca/parks/claireville-conservation-area/"
+        "WebsiteLink": "https://trca.ca/parks/claireville-conservation-area/"
     },
     {
         "ID": "place-008",
@@ -118,7 +118,7 @@ export default[
             "longitude": -79.873140
         },
         "Image": "https://www.rbg.ca/app/uploads/ServiceBerryTrees-HendriePark-scaled-2200x1467.jpg",
-        "Website link": "https://www.rbg.ca/"
+        "WebsiteLink": "https://www.rbg.ca/"
     },
     {
         "ID": "place-009",
@@ -133,7 +133,7 @@ export default[
             "longitude": -79.231713
         },
         "Image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,g_xy_center,h_634,q_65,w_1920,x_2480,y_2284/v1/clients/toronto/167_3_4816_jpeg_fc72e7b7-064e-4690-ab2f-0762667a7712.jpg",
-        "Website link": "https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/scarborough-bluffs/"
+        "WebsiteLink": "https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/scarborough-bluffs/"
     },
     {
         "ID": "place-010",
@@ -148,7 +148,7 @@ export default[
             "longitude": -79.377170
         },
         "Image": "https://www.centreisland.ca/uploads/slideshow/28c7bf2f086bb8da8b544e0d168714c5.jpg",
-        "Website link": "https://www.centreisland.ca/centreville-amusement-park"
+        "WebsiteLink": "https://www.centreisland.ca/centreville-amusement-park"
     },
     {
         "ID": "place-011",
@@ -163,7 +163,7 @@ export default[
             "longitude": -79.055590
         },
         "Image": "https://www.niagaraparks.com/media/2016/11/butterfly-emergence-window.jpg",
-        "Website link": "https://www.niagaraparks.com/visit/attractions/butterfly-conservatory/"
+        "WebsiteLink": "https://www.niagaraparks.com/visit/attractions/butterfly-conservatory/"
     },
     {
         "ID": "place-012",
@@ -178,7 +178,7 @@ export default[
             "longitude": -79.185437
         },
         "Image": "https://www.torontozoo.com/!/img/pg/attractions/kangaroo-walk-thru-423.jpg",
-        "Website link": "https://www.torontozoo.com/"
+        "WebsiteLink": "https://www.torontozoo.com/"
     },
     {
         "ID": "place-013",
@@ -193,7 +193,7 @@ export default[
             "longitude": -79.338926
         },
         "Image": "https://www.ontariosciencecentre.ca/media/1021/building.jpg",
-        "Website link": "https://www.ontariosciencecentre.ca/"
+        "WebsiteLink": "https://www.ontariosciencecentre.ca/"
     },
     {
         "ID": "place-014",
@@ -208,7 +208,7 @@ export default[
             "longitude": -79.394777
         },
         "Image": "https://d3qvqlc701gzhm.cloudfront.net/full/f723d64a8ed4399d41f4fc3d44afa36636124bdfa4f2db24cabefc8743d080e9.jpg",
-        "Website link": "https://www.rom.on.ca/en"
+        "WebsiteLink": "https://www.rom.on.ca/en"
     },
     {
         "ID": "place-015",
@@ -223,6 +223,6 @@ export default[
             "longitude": -79.387061
         },
         "Image": "https://www.juicer.io/api/posts/478051783/images.jpg?external_id=C1j8_kvA79W&s=19433b9f29af00b05f0f14853d11acb6501cf523",
-        "Website link": "https://www.cntower.ca/"
+        "WebsiteLink": "https://www.cntower.ca/"
     }
 ]   

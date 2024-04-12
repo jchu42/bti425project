@@ -2,6 +2,7 @@ import { Card, Form, Alert, Button, Container, Row, Col, Dropdown } from "react-
 import {useAtom} from 'jotai';
 import {dataAtom, errorAtom} from './store.js';
 import { useState, useEffect } from "react";
+import Link from 'next/link'
 
 export default function App() {
     /*
@@ -19,7 +20,7 @@ export default function App() {
     const [subsetSearchResults, setSubsetSearchResults] = useState([]);
     
     useEffect(()=>{
-        if (searchResults.length > 0){
+        if (searchResults && searchResults.length > 0){
             var pag = [];
             for(var i = 1; i <= Math.ceil(searchResults.length / CARDS_PER_PAGE); ++i){
                 pag.push(i);
@@ -28,7 +29,7 @@ export default function App() {
 
             changePage(1); // when search results are initially loaded, set current page to page 1. 
         }
-    }, [searchResults]) // reload search results when new search results are given
+    }, [searchResults,]) // reload search results when new search results are given
 
     function changePage(pageNumber){ 
         // could also be useEffect with on pageNumber change, 
@@ -55,16 +56,18 @@ export default function App() {
             <Container><Row>{subsetSearchResults.map((result, index)=>{
                 // https://sentry.io/answers/unique-key-prop/
 
-                return <Col key={"card" + index}><Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={result.Image} />
+                return <Col style={{display: "flex", "justifyContent": "space-between", "alignItems": "stretch" }} key={"card" + index}><Card style={{ width: '18rem' }}>
+                    <a href={result["WebsiteLink"]} target="_blank"><Card.Img variant="top" src={result.Image}  width={200} height={200} align="center" style={{ "objectFit": "cover"}}/></a>
                     <Card.Body>
                         <Card.Title>{result.Name}</Card.Title>
                         <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
+                            {result.Description} <br />
                         </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
                     </Card.Body>
+                    <Card.Footer>
+                        Price: {result.Price == 0?<>Free</>:<>${result.Price.toFixed(2)}</>}
+                        <Link href={"/places/" + result.ID}><Button variant="primary" style={{"float": "right"}}>Go somewhere</Button></Link>
+                    </Card.Footer>
                 </Card></Col>
             })}</Row></Container>
         }
@@ -74,9 +77,10 @@ export default function App() {
             ?
             <></>
             :
-            <Container><Row><Col>{pages.map((result, index)=>{
-                return <button key={"pageButton" + index} onClick={()=>changePage(result)}>{result==currentPage?<b><i><u>{result}</u></i></b>:<>{result}</>}</button>
-            })}</Col></Row></Container>
+            <div style={{display: 'flex', justifyContent: 'center'}}>{pages.map((result, index)=>{
+                // return <button key={"pageButton" + index} onClick={()=>changePage(result)}>{result==currentPage?<b><i><u>{result}</u></i></b>:<>{result}</>}</button>
+                return <Button key={"pageButton" + index} variant={result==currentPage?"dark":"outline-dark"} onClick={()=>changePage(result)}>{result}</Button>
+            })}</div>
         }
         </div>
     );
