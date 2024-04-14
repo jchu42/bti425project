@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import Link from 'next/link';
 
-const PlaceCard = ({ result }) => {
+const PlaceCard = ({ result, focused }) => {
   return (
     <Card style={{ width: '18rem' }}>
       <a href={result.WebsiteLink} target="_blank">
@@ -21,11 +21,18 @@ const PlaceCard = ({ result }) => {
       </Card.Body>
       <Card.Footer>
         Price: {result.Price === 0 ? <>Free</> : <>${result.Price.toFixed(2)}</>}
-        <Link href={`/places/${result.ID}`}>
-          <Button variant="btn btn-danger" style={{ float: 'right' }}>
-            Go Here
-          </Button>
-        </Link>
+        {
+          focused?
+          <> 
+            Add to Favorites
+          </>
+          :
+          <Link href={`/places/${result.ID}`}>
+              <Button variant="btn btn-danger" style={{ float: 'right' }}>
+                Go Here
+              </Button>
+          </Link>
+        }
       </Card.Footer>
     </Card>
   );

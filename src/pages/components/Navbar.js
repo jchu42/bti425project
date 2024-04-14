@@ -1,10 +1,31 @@
 import Link from "next/link";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { useState } from "react";
+import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
+import { useEffect, useState } from "react";
 import styles from "../../styles/Navbar.module.css";
+import { useRouter } from 'next/router'; 
+import {atom, useAtom} from 'jotai';
+import {loggedInAtom} from '../../login.js';
 
 const Navbar = ({ handleSearch }) => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [loggedIn, setLoggedIn] = useAtom(loggedInAtom);
+  const [successMessage, setSuccessMessage] = useState(null);
+  const router = useRouter();
+
+  useEffect(()=>{
+    setLoggedIn (localStorage.getItem('token'));
+  }, [])
+
+
+  // Function to handle form submission
+  const logout = async () => {
+      setSuccessMessage("Logout Successful"); // Set success message
+      localStorage.removeItem('token'); // Delete token in local storage
+      setTimeout(() => {
+        setLoggedIn(false)
+          router.push('/');
+      }, 2000);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,12 +60,23 @@ const Navbar = ({ handleSearch }) => {
                 </Button>
               </Form>
               <span style={{ display: 'grid',gridTemplateColumns: "1fr 1fr", gap: "20px"}}>
-                <Button variant="primary" href="/login">
-                  Login
-                </Button>
-                <Button variant="primary" href="/register">
-                  Register
-                </Button>
+                {
+                  loggedIn?<>
+                  <Button variant="danger" onClick={logout}>
+                    Logout
+                  </Button>
+                  {successMessage && <Alert variant="success" style={{ position: "fixed" }}>{successMessage}</Alert>} {/* Display success message */}
+                </>
+                  :
+                  <>
+                    <Button variant="primary" href="/login">
+                      Login
+                    </Button>
+                    <Button variant="primary" href="/register">
+                      Register
+                    </Button>
+                  </>
+                }
               </span>
             </div>
           </Col>

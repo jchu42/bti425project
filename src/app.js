@@ -47,7 +47,7 @@ export default function App() {
                 }}
                 key={`card${index}`}
               >
-                <PlaceCard result={result} />
+                <PlaceCard result={result} focused={false} />
               </Col>
             ))}
           </Row>

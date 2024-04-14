@@ -25,7 +25,7 @@ export default function Place(props) {
 
     return (
         <div className={styles.container}>
-            <PlaceCard result={props.place} />
+            <PlaceCard result={props.place} focused={true} />
         </div>
     );
 }
