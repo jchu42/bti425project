@@ -1,6 +1,8 @@
 // pages/api/login.js
 
 import { MongoClient } from 'mongodb';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -14,16 +16,22 @@ export default async function handler(req, res) {
       // Check if the username and password match a user in the database
       const db = client.db('BTIProject');
       const usersCollection = db.collection('users');
-      const user = await usersCollection.findOne({ username, password });
+      const user = await usersCollection.findOne({ username});
 
       if (user) {
-        // If user exists, login is successful
-        res.status(200).json({ message: 'Login successful' });
-      } else {
-        // If user does not exist or password is incorrect, return an error response
-        res.status(401).json({ message: 'Invalid username or password' });
-      }
-
+        // If user exists, move on to checking the password
+        const isPasswordMatch = await bcrypt.compare(password, user.hashedPassword);
+        if (isPasswordMatch) {
+            const token = jwt.sign({ username: user.username }, process.env.JWT_SECRET, { expiresIn: '1h' });
+            res.status(200).json({ message: 'Login successful', token });
+        } else {
+            // If passwords don't match, return an error response
+            res.status(401).json({ message: 'Invalid username or password' });
+        }
+    } else {
+        // If user does not exist, return an error response
+        res.status(401).json({ message: 'Username does not exist' });
+    }
       await client.close();
     } catch (error) {
       console.error('Error logging in:', error);

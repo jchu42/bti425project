@@ -2,20 +2,22 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button, Form, Alert } from 'react-bootstrap';
 import axios from 'axios';
+
 import styles from '../../styles/Login.module.css'; // Import CSS file for styling
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors }, watch } = useForm(); // React Hook Form
     const [errorMessage, setErrorMessage] = useState(null);
+    const [successMessage, setSuccessMessage] = useState(null);
 
     // Function to handle form submission
     const onSubmit = async (data) => {
         try {
             // Make API call to login endpoint
             const response = await axios.post('/api/login', data);
-            console.log(response.data); // Log success message
-
-            // Optionally, you can redirect the user to another page or display a success message
+            // console.log(response.data); // Log success message
+            setSuccessMessage(response.data.message); // Set success message
+            localStorage.setItem('token', response.data.token); // Store token in local storage
         } catch (error) {
             console.error('Error logging in:', error);
             if (error.response && error.response.status === 401) {
@@ -57,7 +59,7 @@ const Login = () => {
                 </Form.Group>
 
                 {errorMessage && <Alert variant="danger" style={{ margin: '20px 5px' }}>{errorMessage}</Alert>} {/* Display error message */}
-                
+                {successMessage && <Alert variant="success" style={{ margin: '20px 5px' }}>{successMessage}</Alert>} {/* Display success message */}
                 <Button variant="danger" type="submit" style={{ margin: '20px 5px' }} disabled={!username || !password || Object.keys(errors).length > 0}>
                     Login
                 </Button>

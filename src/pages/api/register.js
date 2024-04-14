@@ -4,6 +4,7 @@
 // pages/api/register.js
 
 import { MongoClient } from 'mongodb';
+import bcrypt from 'bcrypt';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -26,7 +27,8 @@ export default async function handler(req, res) {
       }
 
       // Insert user data into the database
-      await usersCollection.insertOne({ username, password });
+      const hashedPassword = await hashPassword(password);
+      await usersCollection.insertOne({ username, hashedPassword });
 
       await client.close();
 
@@ -39,3 +41,8 @@ export default async function handler(req, res) {
     res.status(405).json({ message: 'Method not allowed' });
   }
 }
+// Function to hash password
+const hashPassword = async (password) => {
+  const saltRounds = 10; // Number of salt rounds for bcrypt
+  return await bcrypt.hash(password, saltRounds);
+};

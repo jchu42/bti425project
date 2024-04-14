@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button, Form, Alert } from 'react-bootstrap';
+import { useRouter } from 'next/router'; 
 import axios from 'axios';
-import styles from '../../styles/Register.module.css'; // Import CSS file for styling
+import styles from '../../styles/Register.module.css';
 
 const Register = () => {
-    const { register, handleSubmit, formState: { errors }, watch } = useForm(); // React Hook Form
+    const { register, handleSubmit, formState: { errors }, watch } = useForm();
     const [errorMessage, setErrorMessage] = useState(null);
+    const [successMessage, setSuccessMessage] = useState(null);
+    const router = useRouter();
 
     // Function to handle form submission
     const onSubmit = async (data) => {
         try {
             const response = await axios.post('/api/register', data);
-            console.log(response.data); // Log success message
-
-            // Optionally, you can redirect the user to a login page or display a success message
+            // console.log(response.data); // Log success message
+            setSuccessMessage('Registration successful. Redirecting to login page...');
+            // Redirect to login page after 2 seconds
+            setTimeout(() => {
+                router.push('/login');
+            }, 2000);
         } catch (error) {
             console.error('Error registering user:', error);
             if (error.response && error.response.data.code === 'USER_EXISTS') {
@@ -84,7 +90,7 @@ const Register = () => {
                 </Form.Group>
 
                 {errorMessage && <Alert variant="danger" style={{ margin: '20px 5px' }}>{errorMessage}</Alert>} {/* Display error message */}
-                
+                {successMessage && <Alert variant="success" style={{ margin: '20px 5px' }}>{successMessage}</Alert>}
                 <Button variant="danger" type="submit" disabled={!isFormValid()} style={{ margin: '20px 5px' }} >
                     Submit
                 </Button>
