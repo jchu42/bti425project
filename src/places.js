@@ -327,7 +327,7 @@ export default[
             "latitude": 43.737737,
             "longitude": -79.793755
         },
-        "Image": "src/images/treetoptrekking.jpg",
+        "Image": "src\\images\\treetoptrekking.jpg",
         "Website link": "https://treetoptrekking.com/parks/brampton"
     },
     {
