@@ -3,6 +3,7 @@ import Head from 'next/head';
 import {useAtom} from 'jotai';
 import styles from '../styles/Home.module.css';
 import App from "../app.js";
+import { StrictMode } from 'react';
 import { useState, useEffect } from "react";
 import {dataAtom, errorAtom} from '../store.js';
 
@@ -11,12 +12,13 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Aaaaa</title>
+        <title>Explore Toronto</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-
-      <App />
+      <StrictMode>
+        <App />
+      </StrictMode>
 
       {/*
       {
