@@ -4,6 +4,7 @@ import Link from 'next/link'
 import {useAtom} from 'jotai';
 import { useState, useEffect } from "react";
 import {dataAtom, errorAtom} from '../store.js';
+import getSearch from "../search.js"
 import 'bootstrap/dist/css/bootstrap.min.css';
 export default function MyApp({ Component, pageProps }) {
 
@@ -24,17 +25,20 @@ export default function MyApp({ Component, pageProps }) {
     }
     
     function doSearch() {
-        fetch(`api/search?search=${searchQuery}`, {
-          method: "GET"
-        }).then(res=>{
-          if (!res.ok){
-            return "Error"
-          }
-          return res.json()
-        }).then(data=>{
-          setError(data == "Error");
-          setSearchResults(data.message)
-        })
+        var data = getSearch(searchQuery);
+        setError(data == "Error");
+        setSearchResults(data);
+        // fetch(`api/search?search=${searchQuery}`, {
+        //   method: "GET"
+        // }).then(res=>{
+        //   if (!res.ok){
+        //     return "Error"
+        //   }
+        //   return res.json()
+        // }).then(data=>{
+        //   setError(data == "Error");
+        //   setSearchResults(data.message)
+        // })
       }
 
     return (
