@@ -22,8 +22,8 @@ const PlaceCard = ({ result }) => {
       <Card.Footer>
         Price: {result.Price === 0 ? <>Free</> : <>${result.Price.toFixed(2)}</>}
         <Link href={`/places/${result.ID}`}>
-          <Button variant="primary" style={{ float: 'right' }}>
-            Go somewhere
+          <Button variant="btn btn-danger" style={{ float: 'right' }}>
+            Go Here
           </Button>
         </Link>
       </Card.Footer>

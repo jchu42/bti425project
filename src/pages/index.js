@@ -10,7 +10,6 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Explore Toronto</title>
-        <title>Explore Toronto</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
