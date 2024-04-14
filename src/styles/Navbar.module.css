@@ -1,0 +1,28 @@
+.navbar {
+    background-color: #c52837;
+    padding: 10px 0;
+  }
+
+  .navLink {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.1em; /* Increased font size */
+    padding: 5px 10px; /* Added padding */
+  }
+  
+  .navLink:hover {
+    color: #097dfa; /* Gold color on hover */
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .navbar {
+      padding: 5px 0;
+    }
+  
+    .navLink {
+      font-size: 0.9em;
+    }
+  }
+  

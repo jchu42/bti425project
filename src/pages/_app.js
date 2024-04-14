@@ -1,14 +1,5 @@
-import {
-  Card,
-  Form,
-  Alert,
-  Button,
-  Container,
-  Row,
-  Col,
-  Dropdown,
-} from "react-bootstrap";
 import RouteGuard from "./components/RouteGuard";
+import Navbar from "./components/Navbar";
 import Link from "next/link";
 import { useAtom } from "jotai";
 import { useState, useEffect } from "react";
@@ -52,31 +43,9 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <RouteGuard>
-        <Container>
-          <Row>
-            <Col>
-              <Link href="/">Home</Link>
-            </Col>
-            <Col>
-              <Form className="d-flex" onSubmit={handleSubmit}>
-                <Form.Control
-                  type="text"
-                  value={searchQuery}
-                  id="search"
-                  name="search"
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-                <Button variant="primary" className="pull-right">
-                  Search
-                </Button>
-              </Form>
-            </Col>
-            <Col><Link href="/login">Login</Link></Col>
-            <Col><Link href="/register">Register</Link></Col>
-          </Row>
-        </Container>
-        <Component {...pageProps} />
-        Footer Here <Link href="/contactus"> Contact Us! </Link>
+      <Navbar />
+      <Component {...pageProps} />
+      <footer>Footer Here</footer>
       </RouteGuard>
     </>
   );
