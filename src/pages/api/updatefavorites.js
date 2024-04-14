@@ -10,7 +10,12 @@ export default async function updatehistory(req, res) {
       const token = req.headers.authorization;
       const favorites = req.headers.favorites
       const username = jwt.verify(token, process.env.JWT_SECRET).username;
-
+    }
+    catch (error){
+      res.status(401).json({message: "Invalid token"});
+      return;
+    }
+    try{
         // Connect to MongoDB
         const client = new MongoClient(process.env.MONGODB_URI);
         await client.connect();
@@ -32,7 +37,7 @@ export default async function updatehistory(req, res) {
         }
         await client.close();
     } catch (error) {
-      console.error('Error logging in:', error);
+      console.log('Error logging in:', error);
       res.status(500).json({ message: 'Internal server error' });
     }
   } else {

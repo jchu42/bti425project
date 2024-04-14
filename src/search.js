@@ -6,6 +6,8 @@ export default async function getSearch(search){
     if (!search)
         search = "";
     var searchResults = places; 
+    if (search == "all places")
+        return searchResults
 
     var searchElements = search.split(" ");
     var beenSorted = false;

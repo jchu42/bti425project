@@ -10,6 +10,12 @@ export default async function updatehistory(req, res) {
         const token = req.headers.authorization;
         const history = req.headers.history
         const username = jwt.verify(token, process.env.JWT_SECRET).username;
+    }
+    catch (error){
+      res.status(401).json({message: "Invalid token"});
+      return;
+    }
+    try{
 
         // Connect to MongoDB
         const client = new MongoClient(process.env.MONGODB_URI);

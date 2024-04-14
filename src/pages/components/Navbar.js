@@ -41,67 +41,69 @@ const Navbar = ({ handleSearch }) => {
   }, [searchQuery])
 
   return (
-    <nav className={styles.navbar}>
-      <Container>
-        <Row className="align-items-center">
-          <Col>
-            <Link href="/" onClick={()=>setSearchQuery("")} passHref style={{ textDecoration: 'none' }}>
-              <span className={styles.navLink}>Home</span>
-            </Link>
-          </Col>
-          <Col xs={5}>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <Form onSubmit={handleSubmit} className="d-flex">
-                <Form.Control
-                  type="text"
-                  value={tempSearchQuery}
-                  onChange={(e) => setTempSearchQuery(e.target.value)}
-                  placeholder="Search"
-                  className={styles.searchInput}
-                />
-                <Button
-                  type="submit"
-                  style={{ marginLeft: "10px" }}
-                  variant="primary"
-                >
-                  Search
-                </Button>
-              </Form>
-              <span style={{ display: 'grid',gridTemplateColumns: "1fr 1fr", gap: "20px"}}>
-                {
-                  loggedIn?<>
-                    {/* <Button variant="danger" onClick={logout}>
-                      Logout
-                    </Button> */}
-                    <Dropdown>
-                      <Dropdown.Toggle variant="success" id="dropdown-basic">
-                        Account
-                      </Dropdown.Toggle>
+    <header style={{position:"sticky", top: 0, width:"100%", zIndex:"1"}}>
+      <nav className={styles.navbar}>
+        <Container>
+          <Row className="align-items-center">
+            <Col>
+              <Link href="/" onClick={()=>setSearchQuery("")} passHref style={{ textDecoration: 'none' }}>
+                <span className={styles.navLink}>Home</span>
+              </Link>
+            </Col>
+            <Col xs={5}>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <Form onSubmit={handleSubmit} className="d-flex">
+                  <Form.Control
+                    type="text"
+                    value={tempSearchQuery}
+                    onChange={(e) => setTempSearchQuery(e.target.value)}
+                    placeholder="Search"
+                    className={styles.searchInput}
+                  />
+                  <Button
+                    type="submit"
+                    style={{ marginLeft: "10px" }}
+                    variant="primary"
+                  >
+                    Search
+                  </Button>
+                </Form>
+                <span style={{ display: 'grid',gridTemplateColumns: "1fr 1fr", gap: "20px"}}>
+                  {
+                    loggedIn?<>
+                      {/* <Button variant="danger" onClick={logout}>
+                        Logout
+                      </Button> */}
+                      <Dropdown>
+                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                          Account
+                        </Dropdown.Toggle>
 
-                      <Dropdown.Menu>
-                        <Dropdown.Item onClick={()=>router.push("/history")}>History</Dropdown.Item>
-                        <Dropdown.Item onClick={()=>router.push("/favorites")}>Favorites</Dropdown.Item>
-                        <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown>
-                    {successMessage && <Alert variant="success" style={{ position: "fixed" }}>{successMessage}</Alert>} {/* Display success message */}
-                  </>
-                  :
-                  <>
-                    <Button variant="primary" href="/login">
-                      Login
-                    </Button>
-                    <Button variant="primary" href="/register">
-                      Register
-                    </Button>
-                  </>
-                }
-              </span>
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    </nav>
+                        <Dropdown.Menu>
+                          <Dropdown.Item onClick={()=>router.push("/history")}>History</Dropdown.Item>
+                          <Dropdown.Item onClick={()=>router.push("/favorites")}>Favorites</Dropdown.Item>
+                          <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                      {successMessage && <Alert variant="success" style={{ position: "fixed" }}>{successMessage}</Alert>} {/* Display success message */}
+                    </>
+                    :
+                    <>
+                      <Button variant="primary" href="/login">
+                        Login
+                      </Button>
+                      <Button variant="primary" href="/register">
+                        Register
+                      </Button>
+                    </>
+                  }
+                </span>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </nav>
+    </header>
   );
 };
 

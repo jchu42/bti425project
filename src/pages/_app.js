@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 import { dataAtom, errorAtom } from "../store.js";
 import getSearch from "../search.js";
 import {loggedInAtom, favoritesAtom, historyAtom} from '../user.js';
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import styles from "../styles/Navbar.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function MyApp({ Component, pageProps }) {
@@ -19,24 +21,31 @@ export default function MyApp({ Component, pageProps }) {
   //var searchQuery = "";
   useEffect(()=>{
     // when refreshsed
-    fetch('/api/authenticated', {
-      method: 'POST',
-      headers: {authorization: localStorage.getItem('token')},
-    }).then(res=>{
-      if (res.ok){
-        try{
-          setFavorites(JSON.parse(localStorage.getItem('favorites')));
-          setHistory(JSON.parse(localStorage.getItem('history')));
+    if (localStorage.getItem("token")){
+      fetch('/api/authenticated', {
+        method: 'POST',
+        headers: {authorization: localStorage.getItem('token')},
+      }).then(res=>{
+        if (res.ok){
+          try{
+            setFavorites(JSON.parse(localStorage.getItem('favorites')));
+            setHistory(JSON.parse(localStorage.getItem('history')));
+          }
+          catch {
+            console.log ("Oopsie");
+          }
         }
-        catch {
-          console.log ("Oopsie");
+        else{
+          // invalid token
+          localStorage.removeItem('token')
+          localStorage.setItem('favorites', [])
+          localStorage.setItem('history', [])
         }
-      }
-      else{
-        localStorage.setItem('favorites', [])
-        localStorage.setItem('history', [])
-      }
-    })
+      })
+    }
+    else{
+      console.log("no token")
+    }
 
   }, [])
 
@@ -59,8 +68,16 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <RouteGuard>
         <Navbar handleSearch={doSearch}/>
+        <div style={{padding: "15px"}}></div>
         <Component {...pageProps} />
-        <footer>Footer Here</footer>
+        <div style={{padding: "40px"}}></div> {/* Padding takes into account footer height */}
+        <footer style={{ position: "fixed", bottom: 0, width:"100%" }}>
+          <nav className={styles.navbar}>
+            <Container style={{ height: '37px'}}>
+              <Button href="/contactus" variant="warning" style={{ float: 'right' }}>Contact Us</Button>
+            </Container>
+          </nav>
+        </footer> 
       </RouteGuard>
     </>
   );

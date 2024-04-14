@@ -14,7 +14,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useAtom(searchAtom);
 
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Explore Toronto</title>
         <link rel="icon" href="/favicon.ico" />
@@ -23,22 +23,22 @@ export default function Home() {
       <StrictMode>
         {
           searchQuery == ""?
-          <div>
-          <Container>
-            <Row>
-              <h1>Categories</h1>
-              {categories.map((res, index)=>(
-                <Col style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'stretch',
-                  }}
-                  key={`card${index}`}>
-                  <CategoryCard categoryInformation={res}></CategoryCard>
-                </Col>
-              ))}
-            </Row>
-          </Container>
+            <div>
+            <Container>
+              <Row>
+                <h1>Categories</h1>
+                {categories.map((res, index)=>(
+                  <Col style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'stretch',
+                    }}
+                    key={`card${index}`}>
+                    <CategoryCard categoryInformation={res}></CategoryCard>
+                  </Col>
+                ))}
+              </Row>
+            </Container>
           </div>
           :
           <App />
@@ -58,6 +58,6 @@ export default function Home() {
       } */}
 
       
-    </div>
+    </>
   );
 }

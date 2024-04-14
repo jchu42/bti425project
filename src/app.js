@@ -38,11 +38,12 @@ export default function App() {
       ) : (
         <Container>
           <Row>
+            <h1>Search Results</h1>
             {subsetSearchResults.map((result, index) => (
               <Col
                 style={{
                   display: 'flex',
-                  justifyContent: 'space-between',
+                  justifyContent: 'center',
                   alignItems: 'stretch',
                 }}
                 key={`card${index}`}

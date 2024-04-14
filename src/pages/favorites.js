@@ -56,17 +56,17 @@ export default function History() {
 
   return (
     <div>
-        <h1>Favorites</h1>
       {subsetSearchResults.length === 0 ? (
         <>No Favorites yet.</>
       ) : (
         <Container>
           <Row>
+            <h1>Favorites</h1>
             {subsetSearchResults.map((result, index) => (
               <Col
                 style={{
                   display: 'flex',
-                  justifyContent: 'space-between',
+                  justifyContent: 'center',
                   alignItems: 'stretch',
                 }}
                 key={`card${index}`}

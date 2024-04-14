@@ -24,8 +24,18 @@ export default function Place(props) {
     const result= props.place;
 
     return (
-        <div className={styles.container}>
+        <div>
+        <Container><Row>
+            <Col
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'stretch',
+                }}
+              >
             <PlaceCard result={props.place} focused={true} />
+            </Col>
+        </Row></Container>
         </div>
     );
 }

@@ -47,7 +47,7 @@ const PlaceCard = ({ result, focused }) => {
   }
 
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '18rem'}}>
       <a href={result.WebsiteLink} target="_blank">
         <Card.Img
           variant="top"
@@ -60,6 +60,11 @@ const PlaceCard = ({ result, focused }) => {
       </a>
       <Card.Body>
         <Card.Title>{result.Name}</Card.Title>
+        {
+          result.Discontinued?
+          <Card.Text style={({color: "red"})}>Discontinued!</Card.Text>
+          :<></>
+        }
         <Card.Text>{result.Description} <br /></Card.Text>
       </Card.Body>
       <Card.Footer>
