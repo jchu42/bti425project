@@ -63,10 +63,6 @@ export default function App() {
                         <Card.Text>
                             {result.Description} <br />
                         </Card.Text>
-<<<<<<< HEAD
-                        <Button variant="primary">Go Here</Button>
-=======
->>>>>>> origin/main
                     </Card.Body>
                     <Card.Footer>
                         Price: {result.Price == 0?<>Free</>:<>${result.Price.toFixed(2)}</>}
