@@ -5,14 +5,40 @@ import { useAtom } from "jotai";
 import { useState, useEffect } from "react";
 import { dataAtom, errorAtom } from "../store.js";
 import getSearch from "../search.js";
+import {loggedInAtom, favoritesAtom, historyAtom} from '../user.js';
 import "bootstrap/dist/css/bootstrap.min.css";
+
 export default function MyApp({ Component, pageProps }) {
   const [searchResults, setSearchResults] = useAtom(dataAtom);
   const [error, setError] = useAtom(errorAtom);
+  const [favorites, setFavorites] = useAtom(favoritesAtom);
+  const [history, setHistory] = useAtom(historyAtom);
 
-  const [searchQuery, setSearchQuery] = useState("");
+  // const [searchQuery, setSearchQuery] = useState("");
 
   //var searchQuery = "";
+  useEffect(()=>{
+    // when refreshsed
+    fetch('/api/authenticated', {
+      method: 'POST',
+      headers: {authorization: localStorage.getItem('token')},
+    }).then(res=>{
+      if (res.ok){
+        try{
+          setFavorites(JSON.parse(localStorage.getItem('favorites')));
+          setHistory(JSON.parse(localStorage.getItem('history')));
+        }
+        catch {
+          console.log ("Oopsie");
+        }
+      }
+      else{
+        localStorage.setItem('favorites', [])
+        localStorage.setItem('history', [])
+      }
+    })
+
+  }, [])
 
   // initial search
   useEffect(doSearch, []); //https://www.freecodecamp.org/news/prevent-infinite-loops-when-using-useeffect-in-reactjs/#:~:text=useEffect%20checks%20if%20the%20dependencies,if%20state%20is%20being%20updated.
@@ -23,8 +49,8 @@ export default function MyApp({ Component, pageProps }) {
 //     doSearch();
 //   }
 
-  function doSearch() {
-    var data = getSearch(searchQuery);
+  function doSearch(query) {
+    var data = getSearch(query);
     setError(data == "Error");
     setSearchResults(data);
   }
@@ -32,7 +58,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <RouteGuard>
-        <Navbar />
+        <Navbar handleSearch={doSearch}/>
         <Component {...pageProps} />
         <footer>Footer Here</footer>
       </RouteGuard>

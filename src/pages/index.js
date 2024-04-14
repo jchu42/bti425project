@@ -2,9 +2,16 @@
 import Head from 'next/head';
 import {useAtom} from 'jotai';
 import styles from '../styles/Home.module.css';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import App from "../app.js";
 import { StrictMode } from 'react';
+import categories from "../categories.js"
+import CategoryCard from './components/CategoryCard.js'
+import { dataAtom, errorAtom } from '../store.js';
+import {searchAtom} from '../store.js';
+
 export default function Home() {
+  const [searchQuery, setSearchQuery] = useAtom(searchAtom);
 
   return (
     <div className={styles.container}>
@@ -14,7 +21,28 @@ export default function Home() {
       </Head>
 
       <StrictMode>
-        <App />
+        {
+          searchQuery == ""?
+          <div>
+          <Container>
+            <Row>
+              <h1>Categories</h1>
+              {categories.map((res, index)=>(
+                <Col style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'stretch',
+                  }}
+                  key={`card${index}`}>
+                  <CategoryCard categoryInformation={res}></CategoryCard>
+                </Col>
+              ))}
+            </Row>
+          </Container>
+          </div>
+          :
+          <App />
+        }
       </StrictMode>
 
       {/*

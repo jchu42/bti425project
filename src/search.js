@@ -3,6 +3,8 @@ import places from "./places.js"
 import categories from "./categories.js"
 
 export default async function getSearch(search){
+    if (!search)
+        search = "";
     var searchResults = places; 
 
     var searchElements = search.split(" ");

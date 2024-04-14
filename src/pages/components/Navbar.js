@@ -4,10 +4,13 @@ import { useEffect, useState } from "react";
 import styles from "../../styles/Navbar.module.css";
 import { useRouter } from 'next/router'; 
 import {atom, useAtom} from 'jotai';
-import {loggedInAtom} from '../../login.js';
+import {loggedInAtom} from '../../user.js';
+import {searchAtom} from '../../store.js';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 const Navbar = ({ handleSearch }) => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useAtom(searchAtom);
+  const [tempSearchQuery, setTempSearchQuery] = useState("");
   const [loggedIn, setLoggedIn] = useAtom(loggedInAtom);
   const [successMessage, setSuccessMessage] = useState(null);
   const router = useRouter();
@@ -29,15 +32,20 @@ const Navbar = ({ handleSearch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleSearch(searchQuery);
+    setSearchQuery(tempSearchQuery)
   };
+
+  useEffect(()=>{
+    setTempSearchQuery(searchQuery);
+    handleSearch(searchQuery);
+  }, [searchQuery])
 
   return (
     <nav className={styles.navbar}>
       <Container>
         <Row className="align-items-center">
           <Col>
-            <Link href="/" passHref style={{ textDecoration: 'none' }}>
+            <Link href="/" onClick={()=>setSearchQuery("")} passHref style={{ textDecoration: 'none' }}>
               <span className={styles.navLink}>Home</span>
             </Link>
           </Col>
@@ -46,8 +54,8 @@ const Navbar = ({ handleSearch }) => {
               <Form onSubmit={handleSubmit} className="d-flex">
                 <Form.Control
                   type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                  value={tempSearchQuery}
+                  onChange={(e) => setTempSearchQuery(e.target.value)}
                   placeholder="Search"
                   className={styles.searchInput}
                 />
@@ -62,11 +70,22 @@ const Navbar = ({ handleSearch }) => {
               <span style={{ display: 'grid',gridTemplateColumns: "1fr 1fr", gap: "20px"}}>
                 {
                   loggedIn?<>
-                  <Button variant="danger" onClick={logout}>
-                    Logout
-                  </Button>
-                  {successMessage && <Alert variant="success" style={{ position: "fixed" }}>{successMessage}</Alert>} {/* Display success message */}
-                </>
+                    {/* <Button variant="danger" onClick={logout}>
+                      Logout
+                    </Button> */}
+                    <Dropdown>
+                      <Dropdown.Toggle variant="success" id="dropdown-basic">
+                        Account
+                      </Dropdown.Toggle>
+
+                      <Dropdown.Menu>
+                        <Dropdown.Item onClick={()=>router.push("/history")}>History</Dropdown.Item>
+                        <Dropdown.Item onClick={()=>router.push("/favorites")}>Favorites</Dropdown.Item>
+                        <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                    {successMessage && <Alert variant="success" style={{ position: "fixed" }}>{successMessage}</Alert>} {/* Display success message */}
+                  </>
                   :
                   <>
                     <Button variant="primary" href="/login">
