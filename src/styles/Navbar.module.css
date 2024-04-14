@@ -1,0 +1,28 @@
+.navbar {
+    background-color: #c52837;
+    padding: 10px 0;
+  }
+
+  .navLink {
+    color: #ffffff;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    font-size: 3.0em; /* Increased font size */
+    padding: 5px 10px; /* Added padding */
+  }
+  
+  .navLink:hover {
+    color: #7a0909; /* Gold color on hover */
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .navbar {
+      padding: 5px 0;
+    }
+  
+    .navLink {
+      font-size: 0.9em;
+    }
+  }
+  

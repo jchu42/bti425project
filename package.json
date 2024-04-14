@@ -6,13 +6,18 @@
     "start": "next start"
   },
   "dependencies": {
+    "axios": "^1.6.8",
+    "bcrypt": "^5.1.1",
     "bootstrap": "^5.3.3",
+    "dotenv": "^16.4.5",
     "jotai": "^2.7.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.5.0",
     "next": "latest",
     "react": "18.2.0",
     "react-bootstrap": "^2.10.2",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.51.2",
+    "react-hook-form": "^7.51.3",
     "react-phone-number-input": "^3.3.12"
   },
   "engines": {
