@@ -6,10 +6,11 @@ import jwt from 'jsonwebtoken';
 
 export default async function updatehistory(req, res) {
   if (req.method === 'POST') {
+    const token = req.headers.authorization;
+    const favorites = req.headers.favorites
+    var username = ""
     try {
-      const token = req.headers.authorization;
-      const favorites = req.headers.favorites
-      const username = jwt.verify(token, process.env.JWT_SECRET).username;
+      username = jwt.verify(token, process.env.JWT_SECRET).username;
     }
     catch (error){
       res.status(401).json({message: "Invalid token"});

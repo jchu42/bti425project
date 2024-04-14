@@ -23,7 +23,7 @@ const CategoryCard = ({ categoryInformation }) => {
       </a> */}
       <Card.Body>
         {/* <Card.Title>{result.Name}</Card.Title> */}
-        <Card.Text><Button onClick={()=>setSearchQuery(categoryInformation.Description)}>{categoryInformation.Description}</Button></Card.Text>
+        <Card.Text><Button onClick={()=>setSearchQuery(categoryInformation.Description)} variant="danger">{categoryInformation.Description}</Button></Card.Text>
       </Card.Body>
       {/* <Card.Footer>
         Price: {result.Price === 0 ? <>Free</> : <>${result.Price.toFixed(2)}</>}

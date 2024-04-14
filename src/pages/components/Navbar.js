@@ -32,6 +32,7 @@ const Navbar = ({ handleSearch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    router.push('/')
     setSearchQuery(tempSearchQuery)
   };
 

@@ -6,10 +6,11 @@ import jwt from 'jsonwebtoken';
 
 export default async function updatehistory(req, res) {
   if (req.method === 'POST') {
+    const token = req.headers.authorization;
+    const history = req.headers.history
+    var username = ""
     try {
-        const token = req.headers.authorization;
-        const history = req.headers.history
-        const username = jwt.verify(token, process.env.JWT_SECRET).username;
+        username = jwt.verify(token, process.env.JWT_SECRET).username;
     }
     catch (error){
       res.status(401).json({message: "Invalid token"});
@@ -33,6 +34,8 @@ export default async function updatehistory(req, res) {
 
             res.status(200).json({message: "synced history"});
         } else {
+            console.log ("Username: ", username)
+            console.log("User: ", user)
             // If user does not exist, return an error response
             res.status(401).json({ message: 'Username does not exist' });
         }

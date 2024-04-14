@@ -25,7 +25,7 @@ const PlaceCard = ({ result, focused }) => {
       })
       setHistory(newHistory);
       localStorage.setItem('history', JSON.stringify(newHistory));
-      console.log(newHistory);
+      console.log("History: ", newHistory);
     }
   }, [])
 
@@ -43,17 +43,16 @@ const PlaceCard = ({ result, focused }) => {
     })
     setFavorites(newFavorites);
     localStorage.setItem('favorites', JSON.stringify(newFavorites));
-    console.log(newFavorites);
+    console.log("Favorites: ", newFavorites);
   }
 
   return (
-    <Card style={{ width: '18rem'}}>
-      <a href={result.WebsiteLink} target="_blank">
+    <Card style={{ width: focused?'36rem':'18rem'}}>
+      <a href={result['Website link']} target="_blank">
         <Card.Img
           variant="top"
           src={result.Image}
-          width={200}
-          height={200}
+          height={focused?300:200}
           align="center"
           style={{ objectFit: 'cover' }}
         />
@@ -66,23 +65,38 @@ const PlaceCard = ({ result, focused }) => {
           :<></>
         }
         <Card.Text>{result.Description} <br /></Card.Text>
+        {
+          focused?
+          <>
+          <Card.Text>Open: {result['Times of Operation']}</Card.Text>
+            <a href={"https://www.google.com/maps/@" + result.Location.latitude + "," + result.Location.longitude + ",20z?entry=ttu"} target="_blank"><Card.Text>Google Maps</Card.Text></a>
+          </>
+          :
+          <>
+          </>
+        }
+        
       </Card.Body>
       <Card.Footer>
         Price: {result.Price === 0 ? <>Free</> : <>${result.Price.toFixed(2)}</>}
         {
           focused?
           <> 
-            <Button onClick={toggleFavorites} style={{ float: 'right' }}>
               {
                 favorites.includes(result.ID)?
-                "Remove":"Add"
+                <Button onClick={toggleFavorites} style={{ float: 'right' }} variant="warning">
+                  Remove from Favorites
+                </Button>
+                :
+                <Button onClick={toggleFavorites} style={{ float: 'right' }} variant="success">
+                  Add to Favorites
+                </Button>
               }
-            </Button>
           </>
           :
           <Link href={`/places/${result.ID}`}>
-              <Button variant="btn btn-danger" style={{ float: 'right' }}>
-                Go Here
+              <Button variant="primary" style={{ float: 'right' }}>
+                Details
               </Button>
           </Link>
         }
