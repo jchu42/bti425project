@@ -71,7 +71,7 @@ export default function MyApp({ Component, pageProps }) {
                 </Button>
               </Form>
             </Col>
-            <Col>{/* <Link href="/login">Login</Link> */}</Col>
+            <Col><Link href="/login">Login</Link></Col>
             <Col><Link href="/register">Register</Link></Col>
           </Row>
         </Container>
