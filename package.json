@@ -6,11 +6,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "atom": "^1.4.2",
     "axios": "^1.6.8",
     "bcrypt": "^5.1.1",
     "bootstrap": "^5.3.3",
     "dotenv": "^16.4.5",
-    "jotai": "^2.7.2",
+    "jotai": "^2.8.0",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.5.0",
     "next": "latest",
@@ -18,7 +19,8 @@
     "react-bootstrap": "^2.10.2",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.51.3",
-    "react-phone-number-input": "^3.3.12"
+    "react-phone-number-input": "^3.3.12",
+    "router": "^1.3.8"
   },
   "engines": {
     "node": ">=18"
