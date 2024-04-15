@@ -1,0 +1,29 @@
+.card {
+    width: 18rem;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+    background-color: #f3f3f3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .imageContainer {
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .image {
+    width: 100%;
+    height: 100%; /* Ensure images fill the container */
+    object-fit: cover; /* Maintain aspect ratio and fill the container */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card:hover .image {
+    transform: scale(1.1);
+  }
+  
