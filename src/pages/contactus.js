@@ -3,6 +3,7 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { useState, useEffect } from "react";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 export default function ContactUs() {
 
@@ -22,7 +23,7 @@ export default function ContactUs() {
   }
 
   return (
-    <div className={styles.container}>
+    <Container>
       <Head>
           <title>Contact Us</title>
           <link rel="icon" href="/favicon.ico" />
@@ -51,6 +52,6 @@ export default function ContactUs() {
         <button type="submit">Submit</button>
       </form>
 
-    </div>
+    </Container>
   );
 }

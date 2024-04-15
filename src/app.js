@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { useAtom } from 'jotai';
-import { dataAtom, errorAtom } from './store.js';
+import { dataAtom, errorAtom, searchAtom } from './store.js';
 import Link from 'next/link';
 import PlaceCard from './pages/components/PlacesCard.js';
 import Pagination from './pages/components/Pagination.js';
 
 export default function App() {
+  const [searchQuery, setSearchQuery] = useAtom(searchAtom);
   const [searchResults, setSearchResults] = useAtom(dataAtom);
   const [error, setError] = useAtom(errorAtom);
   const [currentPage, setCurrentPage] = useState(1);
@@ -38,16 +39,17 @@ export default function App() {
       ) : (
         <Container>
           <Row>
+            <h1>Search Results: {searchQuery}</h1>
             {subsetSearchResults.map((result, index) => (
               <Col
                 style={{
                   display: 'flex',
-                  justifyContent: 'space-between',
+                  justifyContent: 'center',
                   alignItems: 'stretch',
                 }}
                 key={`card${index}`}
               >
-                <PlaceCard result={result} />
+                <PlaceCard result={result} focused={false} />
               </Col>
             ))}
           </Row>

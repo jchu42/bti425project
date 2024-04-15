@@ -1,31 +1,105 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import Link from 'next/link';
+import {atom, useAtom} from 'jotai';
+import { useEffect, useState } from "react";
+import {loggedInAtom, favoritesAtom, historyAtom} from '../../user.js';
 
-const PlaceCard = ({ result }) => {
+const PlaceCard = ({ result, focused }) => {
+
+  const [favorites, setFavorites] = useAtom(favoritesAtom);
+  const [history, setHistory] = useAtom(historyAtom);
+
+  useEffect(()=>{
+    if (focused){
+      if (history.includes(result.ID)){
+        var newHistory = [...(history.filter(ele=>ele != result.ID)), result.ID];
+      }
+      else
+        var newHistory = [...history, result.ID]
+      // axios.post('/api/updatehistory', favorites)
+      fetch('/api/updatehistory', {
+        method: 'POST',
+        // body: {token: localStorage.getItem['token'], history},
+        headers: {authorization: localStorage.getItem('token'), history:JSON.stringify(newHistory)},
+      })
+      setHistory(newHistory);
+      localStorage.setItem('history', JSON.stringify(newHistory));
+      console.log("History: ", newHistory);
+    }
+  }, [])
+
+  function toggleFavorites (){
+    if (favorites.includes(result.ID)){
+      var newFavorites = [...(favorites.filter(ele=>ele != result.ID))]
+    }
+    else{
+      var newFavorites = [...favorites, result.ID]
+    }
+    fetch('/api/updatefavorites', {
+      method: 'POST',
+      // body: {token: localStorage.getItem['token'], history},
+      headers: {authorization: localStorage.getItem('token'), favorites:JSON.stringify(newFavorites)},
+    })
+    setFavorites(newFavorites);
+    localStorage.setItem('favorites', JSON.stringify(newFavorites));
+    console.log("Favorites: ", newFavorites);
+  }
+
   return (
-    <Card style={{ width: '18rem' }}>
-      <a href={result.WebsiteLink} target="_blank">
+    <Card style={{ width: focused?'36rem':'18rem'}}>
+      <a href={result['Website link']} target="_blank">
         <Card.Img
           variant="top"
           src={result.Image}
-          width={200}
-          height={200}
+          height={focused?300:200}
           align="center"
           style={{ objectFit: 'cover' }}
         />
       </a>
       <Card.Body>
         <Card.Title>{result.Name}</Card.Title>
+        {
+          result.Discontinued?
+          <Card.Text style={({color: "red"})}>Discontinued!</Card.Text>
+          :<></>
+        }
         <Card.Text>{result.Description} <br /></Card.Text>
+        {
+          focused?
+          <>
+          <Card.Text>Open: {result['Times of Operation']}</Card.Text>
+            <a href={"https://www.google.com/maps/@" + result.Location.latitude + "," + result.Location.longitude + ",20z?entry=ttu"} target="_blank"><Card.Text>Google Maps</Card.Text></a>
+          </>
+          :
+          <>
+          </>
+        }
+        
       </Card.Body>
       <Card.Footer>
         Price: {result.Price === 0 ? <>Free</> : <>${result.Price.toFixed(2)}</>}
-        <Link href={`/places/${result.ID}`}>
-          <Button variant="btn btn-danger" style={{ float: 'right' }}>
-            Go Here
-          </Button>
-        </Link>
+        {
+          focused?
+          <> 
+              {
+                favorites.includes(result.ID)?
+                <Button onClick={toggleFavorites} style={{ float: 'right' }} variant="warning">
+                  Remove from Favorites
+                </Button>
+                :
+                <Button onClick={toggleFavorites} style={{ float: 'right' }} variant="success">
+                  Add to Favorites
+                </Button>
+              }
+          </>
+          :
+          <Link href={`/places/${result.ID}`}>
+              <Button variant="primary" style={{ float: 'right' }}>
+                Details
+              </Button>
+          </Link>
+        }
       </Card.Footer>
     </Card>
   );

@@ -1,5 +1,9 @@
 export default[
     {
+        "ID": "cat-00",
+        "Description": "all places"
+    },
+    {
         "ID": "cat-01",
         "Description": "park"
     },

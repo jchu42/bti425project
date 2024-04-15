@@ -23,7 +23,11 @@ export default async function handler(req, res) {
         const isPasswordMatch = await bcrypt.compare(password, user.hashedPassword);
         if (isPasswordMatch) {
             const token = jwt.sign({ username: user.username }, process.env.JWT_SECRET, { expiresIn: '1h' });
-            res.status(200).json({ message: 'Login successful', token });
+            const favorites = JSON.parse(user.favorites);
+            console.log("favorites: ", favorites)
+            const history = JSON.parse(user.history);
+            console.log("history: ", history)
+            res.status(200).json({ message: 'Login successful. Redirecting to Home...', token, favorites, history });
         } else {
             // If passwords don't match, return an error response
             res.status(401).json({ message: 'Invalid username or password' });

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button, Form, Alert } from 'react-bootstrap';
+import { useRouter } from 'next/router'; 
 import axios from 'axios';
+import {atom, useAtom} from 'jotai';
+import {loggedInAtom, favoritesAtom, historyAtom} from '../../user.js';
 
 import styles from '../../styles/Login.module.css'; // Import CSS file for styling
 
@@ -9,6 +12,10 @@ const Login = () => {
     const { register, handleSubmit, formState: { errors }, watch } = useForm(); // React Hook Form
     const [errorMessage, setErrorMessage] = useState(null);
     const [successMessage, setSuccessMessage] = useState(null);
+    const [loggedIn, setLoggedIn] = useAtom(loggedInAtom);
+    const [favorites, setFavorites] = useAtom(favoritesAtom);
+    const [history, setHistory] = useAtom(historyAtom);
+    const router = useRouter();
 
     // Function to handle form submission
     const onSubmit = async (data) => {
@@ -18,6 +25,16 @@ const Login = () => {
             // console.log(response.data); // Log success message
             setSuccessMessage(response.data.message); // Set success message
             localStorage.setItem('token', response.data.token); // Store token in local storage
+            setLoggedIn(true);
+            
+            setFavorites(response.data.favorites)
+            localStorage.setItem('favorites', response.data.favorites);
+            setHistory(response.data.history)
+            localStorage.setItem('history', response.data.history);
+
+            setTimeout(() => {
+                router.push('/');
+            }, 2000);
         } catch (error) {
             console.error('Error logging in:', error);
             if (error.response && error.response.status === 401) {

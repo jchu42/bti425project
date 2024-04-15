@@ -78,7 +78,7 @@ export default[
     {
         "ID": "place-006",
         "Name": "Lakefront Promenade",
-        "Description": "Enjoy Lakefront Promenade’s waterfront pathway, sand beach and beach volleyball court.",
+        "Description": "Enjoy Lakefront Promenade's waterfront pathway, sand beach and beach volleyball court.",
         "Price": 0,
         "Discontinued": false,
         "Categories": ["cat-01", "cat-02", "cat-04", "cat-05", "cat-06", "cat-07", "cat-08"],
@@ -108,7 +108,7 @@ export default[
     {
         "ID": "place-008",
         "Name": "Royal Botanical Gardens",
-        "Description": "Royal Botanical Gardens is Canada’s largest, with over 2,400 acres of gardens and nature sanctuary that spans Hamilton and Burlington Ontario.",
+        "Description": "Royal Botanical Gardens is Canada's largest, with over 2,400 acres of gardens and nature sanctuary that spans Hamilton and Burlington Ontario.",
         "Price": 19.50,
         "Discontinued": false,
         "Categories": ["cat-01", "cat-03", "cat-04", "cat-05", "cat-06", "cat-07", "cat-08"],
@@ -351,7 +351,7 @@ export default[
         "Description": "Opened on May 22, 1971, and operated as a theme park centered around Ontario themes and family attractions until 2012 when the Government of Ontario announced that it would close for redevelopment. It has since reopened as a park without admission but without several of the old attractions. The Government of Ontario is currently considering further redevelopment of the site.",
         "Price": 0.00,
         "Discontinued": true,
-        "Categories": ["cat-01","cat-02","cat-10"],
+        "Categories": ["cat-01","cat-02","cat-10","cat-12"],
         "Times of Operation": "Dawn to Dusk",
         "Location": {
             "latitude": 43.628206,
@@ -362,11 +362,11 @@ export default[
     },
     {
         "ID": "place-025",
-        "Name": "World’s Biggest Bookstore",
+        "Name": "World's Biggest Bookstore",
         "Description": "The World's Biggest Bookstore was a bookstore in Toronto, Ontario, Canada, at 20 Edward St, just north of the Toronto Eaton Centre and the Atrium on Bay. Operating from 1980 until 2014, the three-storey store covered 64,000 square feet and was noted for its bright lights and over 20 kilometres of bookshelves.",
         "Price": 0.00,
         "Discontinued": true,
-        "Categories": ["cat-02","cat-09","cat-10"],
+        "Categories": ["cat-02","cat-09","cat-10","cat-12"],
         "Times of Operation": "Dawn to Dusk",
         "Location": {
             "latitude": 43.656994,
