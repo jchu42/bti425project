@@ -49,7 +49,7 @@ const Register = () => {
     return (
         <div className={styles.container}>
             <Form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-                <Form.Group controlId="formUsername">
+                <Form.Group controlId="formUsername" className={styles.formGroup}>
                     <Form.Label>Username:</Form.Label>
                     <Form.Control
                         type="text"
@@ -59,7 +59,7 @@ const Register = () => {
                     {errors.username?.type === "required" && <span className={styles.error}>Username is required</span>}
                 </Form.Group>
 
-                <Form.Group controlId="formPassword">
+                <Form.Group controlId="formPassword" className={styles.formGroup}>
                     <Form.Label>Password:</Form.Label>
                     <Form.Control
                         type="password"
@@ -75,7 +75,7 @@ const Register = () => {
                     {errors.password?.message && <span className={styles.error}>{errors.password.message}</span>}
                 </Form.Group>
 
-                <Form.Group controlId="formConfirmPassword">
+                <Form.Group controlId="formConfirmPassword" className={styles.formGroup}>
                     <Form.Label>Confirm Password:</Form.Label>
                     <Form.Control
                         type="password"

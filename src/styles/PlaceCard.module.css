@@ -1,6 +1,7 @@
 .card {
     width: 18rem;
     margin-bottom: 20px;
+    margin-top: 20px;
     transition: transform 0.3s ease-in-out;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
