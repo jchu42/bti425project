@@ -1,0 +1,64 @@
+.card {
+    width: 18rem;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card .card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .imageContainer {
+    position: relative;
+    overflow: hidden;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0; /* Initially hidden */
+  }
+  
+  .card:hover .overlay {
+    opacity: 1; /* Show overlay on hover */
+  }
+
+  .card-body {
+    text-align: left; /* Align text left within card body */
+  }
+  
+  .card-footer {
+    display: flex;
+    justify-content: space-between; /* Space elements evenly in card footer */
+    align-items: center; /* Center align items vertically */
+  }
+  
+  .favoriteButton {
+    float: right;
+  }
+  
+  .removeFavoriteButton {
+    margin-left: 10px; /* Add margin between buttons */
+  }
+  
+  .addFavoriteButton:hover,
+  .removeFavoriteButton:hover {
+    opacity: 0.8; /* Reduce opacity on button hover */
+  }
+  
+  .detailsButton {
+    float: right;
+  }
+  
