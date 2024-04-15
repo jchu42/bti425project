@@ -9,10 +9,11 @@
     cursor: pointer;
     font-size: 3.0em; /* Increased font size */
     padding: 5px 10px; /* Added padding */
+    transition: color 0.3s ease;
   }
   
   .navLink:hover {
-    color: #7a0909; /* Gold color on hover */
+    color: #fad400; /* Gold color on hover */
   }
   
   /* Responsive design for smaller screens */

@@ -92,7 +92,7 @@ const Register = () => {
                 {errorMessage && <Alert variant="danger" style={{ margin: '20px 5px' }}>{errorMessage}</Alert>} {/* Display error message */}
                 {successMessage && <Alert variant="success" style={{ margin: '20px 5px' }}>{successMessage}</Alert>}
                 <Button variant="danger" type="submit" disabled={!isFormValid()} style={{ margin: '20px 5px' }} >
-                    Submit
+                    Register
                 </Button>
             </Form>
         </div>

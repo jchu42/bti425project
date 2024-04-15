@@ -12,6 +12,10 @@
   text-decoration: none;
 }
 
+.error {
+  color: red;
+}
+
 .title a:hover,
 .title a:focus,
 .title a:active {

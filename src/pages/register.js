@@ -1,11 +1,13 @@
 // pages/register.js
-
+import Head from 'next/head';
 import Register from './components/Register';
 
 const RegisterPage = () => {
     return (
         <div>
-            {/* <h1>User Registration</h1> */}
+            <Head>
+                <title>Register</title>
+            </Head>
             <Register />
         </div>
     );

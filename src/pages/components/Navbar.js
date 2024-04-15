@@ -48,7 +48,7 @@ const Navbar = ({ handleSearch }) => {
           <Row className="align-items-center">
             <Col>
               <Link href="/" onClick={()=>setSearchQuery("")} passHref style={{ textDecoration: 'none' }}>
-                <span className={styles.navLink}>Home</span>
+                <span className={styles.navLink}>Explore Toronto</span>
               </Link>
             </Col>
             <Col xs={5}>
