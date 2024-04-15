@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { useAtom } from 'jotai';
+import Head from 'next/head';
 import { dataAtom, errorAtom } from '../store.js';
 import Link from 'next/link';
 import PlaceCard from './components/PlacesCard.js';
@@ -56,6 +57,9 @@ export default function History() {
 
   return (
     <div>
+      <Head>
+        <title>History</title>
+      </Head>
       {subsetSearchResults.length === 0 ? (
         <>No history yet.</>
       ) : (

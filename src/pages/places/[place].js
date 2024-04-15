@@ -25,6 +25,9 @@ export default function Place(props) {
 
     return (
         <div>
+            <Head>
+            <   title>{result.Name}</title> {/* Set the title dynamically */}
+             </Head>
         <Container><Row>
             <Col
                 style={{
