@@ -51,16 +51,14 @@ const PlaceCard = ({ result, focused }) => {
   return (
     <Card className={`${styles.card} ${focused ? styles.focusedCard : ''}`}>
       <div className={styles.imageContainer}>
-        <a href={result['Website link']} target="_blank">
-          <Card.Img
-            variant="top"
-           src={result.Image}
-            height={focused?300:200}
-            align="center"
-           style={{ objectFit: 'cover' }}
-         />
-          </a>
-          <div className={styles.overlay}></div>
+        <Card.Img
+          // variant="top"
+          src={result.Image}
+          height={focused?300:200}
+          align="center"
+          style={{ objectFit: 'cover' }}
+        />
+        <div className={styles.overlay}></div>
       </div>
       <Card.Body>
         <Card.Title>{result.Name}</Card.Title>
@@ -73,8 +71,9 @@ const PlaceCard = ({ result, focused }) => {
         {
           focused?
           <>
-          <Card.Text>Open: {result['Times of Operation']}</Card.Text>
-            <a href={"https://www.google.com/maps/@" + result.Location.latitude + "," + result.Location.longitude + ",20z?entry=ttu"} target="_blank"><Card.Text>Google Maps</Card.Text></a>
+            <Card.Text>Open: {result['Times of Operation']}</Card.Text>
+            <Card.Text><a href={result['Website link']} target="_blank">Website</a></Card.Text>
+            <Card.Text><a href={"https://www.google.com/maps/@" + result.Location.latitude + "," + result.Location.longitude + ",20z?entry=ttu"} target="_blank">Google Maps</a></Card.Text>
           </>
           :
           <>
