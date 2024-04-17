@@ -9,6 +9,7 @@ import categories from "../categories.js"
 import CategoryCard from './components/CategoryCard.js'
 import { dataAtom, errorAtom } from '../store.js';
 import {searchAtom} from '../store.js';
+import Hero from "./components/Hero";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useAtom(searchAtom);
@@ -21,6 +22,7 @@ export default function Home() {
       </Head>
 
       <StrictMode>
+        <Hero />
         {
           searchQuery == ""?
             <div>

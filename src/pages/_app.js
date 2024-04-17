@@ -1,6 +1,5 @@
 import RouteGuard from "./components/RouteGuard";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
 import Link from "next/link";
 import { useAtom } from "jotai";
 import { useState, useEffect } from "react";
@@ -70,7 +69,6 @@ export default function MyApp({ Component, pageProps }) {
       <RouteGuard>
         <Navbar handleSearch={doSearch}/>
         {/* <div style={{padding: "15px"}}></div> */}
-        <Hero />
         <Component {...pageProps} />
         <div style={{padding: "40px"}}></div> {/* Padding takes into account footer height */}
         <footer style={{ position: "fixed", bottom: 0, width:"100%" }}>

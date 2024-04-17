@@ -4,6 +4,7 @@ import styles from '../../styles/Home.module.css';
 import places from "../../places.js"
 import Link from 'next/link';
 import PlaceCard from '../components/PlacesCard.js';
+import { useRouter } from 'next/router'; 
 
 
 export async function getStaticPaths() {
@@ -22,13 +23,19 @@ export async function getStaticProps(context) {
 
 export default function Place(props) {
     const result= props.place;
+    const router = useRouter();
 
     return (
         <div>
             <Head>
             <   title>{result.Name}</title> {/* Set the title dynamically */}
              </Head>
-        <Container><Row>
+             <Container style={{padding:"20px", width:'100px'}}> <Col><Row>
+                <Button onClick={(()=>router.back())}>Back</Button>
+                </Row></Col>
+                </Container>
+        <Container>
+            <Row>
             <Col
                 style={{
                   display: 'flex',

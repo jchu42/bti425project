@@ -39,7 +39,6 @@ export default function App() {
       ) : (
         <Container>
           <Row>
-            <h1>Search Results: {searchQuery}</h1>
             {subsetSearchResults.map((result, index) => (
               <Col
                 style={{
