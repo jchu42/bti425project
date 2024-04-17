@@ -11,3 +11,6 @@
 .form {
     width: 300px; /* Adjust width as needed */
 }
+.formGroup {
+    margin-bottom: 20px; /* Add margin between form groups */
+}

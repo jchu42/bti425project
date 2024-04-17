@@ -55,7 +55,7 @@ const Login = () => {
     return (
         <div className={styles.container}>
             <Form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-                <Form.Group controlId="formUsername">
+                <Form.Group controlId="formUsername" className={styles.formGroup}>
                     <Form.Label>Username:</Form.Label>
                     <Form.Control
                         type="text"
@@ -65,7 +65,7 @@ const Login = () => {
                     {errors.username?.type === "required" && <span className={styles.error}>Username is required</span>}
                 </Form.Group>
 
-                <Form.Group controlId="formPassword">
+                <Form.Group controlId="formPassword" className={styles.formGroup}>
                     <Form.Label>Password:</Form.Label>
                     <Form.Control
                         type="password"

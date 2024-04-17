@@ -2,49 +2,61 @@ export default[
     {
         "ID": "cat-00",
         "Description": "all places",
+        "Image": "categories_images\\allplaces.jpg"
     },
     {
         "ID": "cat-01",
-        "Description": "park"
+        "Description": "parks",
+        "Image": "categories_images\\park.jpg"
     },
     {
         "ID": "cat-02",
-        "Description": "free"
+        "Description": "free",
+        "Image": "categories_images\\free.jpg"
     },
     {
         "ID": "cat-03",
-        "Description": "paid"
+        "Description": "paid",
+        "Image": "categories_images\\paid.jpg"
     },
     {
         "ID": "cat-04",
-        "Description": "fishing"
+        "Description": "fishing",
+        "Image": "categories_images\\fishing.jpg"
     },
     {
         "ID": "cat-05",
-        "Description": "hiking"
+        "Description": "hiking",
+        "Image": "categories_images\\hiking.jpg"
     },
     {
         "ID": "cat-06",
-        "Description": "exercise"
+        "Description": "exercise",
+        "Image": "categories_images\\exercise.jpg"
     },
     {
         "ID": "cat-07",
-        "Description": "animals"
+        "Description": "animals",
+        "Image": "categories_images\\animal.jpg"
     },
     {
         "ID": "cat-08",
-        "Description": "outdoors"
+        "Description": "outdoors",
+        "Image": "categories_images\\outdoor.jpg"
     },
     {
         "ID": "cat-09",
-        "Description": "indoors"
+        "Description": "indoors",
+        "Image": "categories_images\\indoor.jpg"
     },
     {
         "ID": "cat-10",
-        "Description": "downtown"
+        "Description": "downtown",
+        "Image": "categories_images\\downtown.jpg"
     },
     {
         "ID": "cat-11",
-        "Description": "shopping"
+        "Description": "shopping",
+        "Image": "categories_images\\shopping.jpg"
     }
 ]

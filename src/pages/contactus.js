@@ -30,27 +30,27 @@ export default function ContactUs() {
       </Head>
 
       <Form onSubmit={handleSubmit(submitForm)}>
-        <Form.Group controlId="formName">
+        <Form.Group controlId="formName" style={{ marginBottom: '20px', marginTop:'20px'}}>
           <Form.Label>Name:</Form.Label>
           <Form.Control type="text" placeholder="Name" {...register("name", { required: true, maxLength: 20 })} />
           {errors.name?.type === "required" && <span className={styles.error}>Name is required</span>}
           {errors.name?.type === "maxLength" && <span className={styles.error}>Name Cannot contain more than 20 characters</span>}
         </Form.Group>
 
-        <Form.Group controlId="formEmail">
+        <Form.Group controlId="formEmail" style={{ marginBottom: '20px' }}>
           <Form.Label>Email:</Form.Label>
           <Form.Control type="text" placeholder="Email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
           {errors.email?.type === "required" && <span className={styles.error}>Email is required</span>}
           {errors.email?.type === "pattern" && <span className={styles.error}>Invalid Email</span>}
         </Form.Group>
 
-        <Form.Group controlId="formPhone">
+        <Form.Group controlId="formPhone" style={{ marginBottom: '20px' }}>
           <Form.Label>Phone Number:</Form.Label>
           <Form.Control type="tel" placeholder="Phone Number" {...register("phoneno")} />
           {errors.phoneno?.type === "validate" && <span className={styles.error}>Invalid Phone Number</span>}
         </Form.Group>
 
-        <Form.Group controlId="formQandS">
+        <Form.Group controlId="formQandS" style={{ marginBottom: '20px' }}>
           <Form.Label>Questions and Suggestions:</Form.Label>
           <Form.Control as="textarea" rows={3} {...register("qands", { required: true, maxLength: 500 })} />
           {errors.qands?.type === "required" && <span className={styles.error}>This field is required</span>}
