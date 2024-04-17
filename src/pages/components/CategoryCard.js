@@ -12,18 +12,6 @@ const CategoryCard = ({ categoryInformation }) => {
   const [searchQuery, setSearchQuery] = useAtom(searchAtom);
 
   return (
-    // <Card className={styles.card}>
-    //   <div className={styles.imageContainer}>
-    //       <img
-    //         src={categoryInformation.Image}
-    //         alt={categoryInformation.description}
-    //         className={styles.image}
-    //       />
-    //     </div>
-    //   <Card.Body className="d-flex flex-column justify-content-center align-items-center">
-    //     <Card.Text><Button onClick={()=>setSearchQuery(categoryInformation.Description)} variant="danger">{categoryInformation.Description}</Button></Card.Text>
-    //   </Card.Body>
-    // </Card>
     <Card
       className={styles.card}
       onClick={() => setSearchQuery(categoryInformation.Description)}
@@ -40,6 +28,10 @@ const CategoryCard = ({ categoryInformation }) => {
           </p>
         </div>
       </div>
+{/*<Card style={{ width: '18rem' }}>
+      <Card.Body>
+        <Card.Text><Button onClick={()=>setSearchQuery(categoryInformation.Description)} variant="danger">{categoryInformation.Description}</Button></Card.Text>
+      </Card.Body> */}
     </Card>
   );
 };
