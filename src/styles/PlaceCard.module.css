@@ -1,5 +1,5 @@
 .card {
-    width: 18rem;
+    /* width: 50rem; */
     margin-bottom: 20px;
     margin-top: 20px;
     transition: transform 0.3s ease-in-out;
@@ -12,7 +12,7 @@
   }
   
   .card .card-img-top {
-    width: 100%;
+    width: auto;
     height: auto;
     object-fit: cover;
   }
