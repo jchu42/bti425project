@@ -68,7 +68,6 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <RouteGuard>
         <Navbar handleSearch={doSearch}/>
-        {/* <div style={{padding: "15px"}}></div> */}
         <Component {...pageProps} />
         <div style={{padding: "40px"}}></div> {/* Padding takes into account footer height */}
         <footer style={{ position: "fixed", bottom: 0, width:"100%" }}>

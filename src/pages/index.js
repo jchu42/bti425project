@@ -45,21 +45,7 @@ export default function Home() {
           :
           <App />
         }
-      </StrictMode>
-
-      {/*
-      {
-        (error || searchResults.length == 0)
-        ?
-        <>Sorry, it looks like search is not working at this time.</>
-        :
-        <>{searchResults.map((result, index)=>{
-            // https://sentry.io/answers/unique-key-prop/
-            return <span key={index}>Name: {result.Name}, Price: {result.Price}<br/></span>
-        })}</>
-      } */}
-
-      
+      </StrictMode>      
     </>
   );
 }
