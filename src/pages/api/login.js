@@ -13,18 +13,16 @@ export default async function handler(req, res) {
       const client = new MongoClient(process.env.MONGODB_URI);
       await client.connect();
 
-      // Check if the username and password match a user in the database
+      // Check if the username and password match a user in the db
       const db = client.db('BTIProject');
       const usersCollection = db.collection('users');
       const user = await usersCollection.findOne({ username});
 
       if (user) {
-        // If user exists, move on to checking the password
+        // If user exists, check the password
         const isPasswordMatch = await bcrypt.compare(password, user.hashedPassword);
         if (isPasswordMatch) {
             const token = jwt.sign({ username: user.username }, process.env.JWT_SECRET, { expiresIn: '1h' });
-            // const favorites = JSON.parse(user.favorites);
-            // const history = JSON.parse(user.history);
             const favorites = user.favorites ? JSON.parse(user.favorites) : [];
             const history = user.history ? JSON.parse(user.history) : [];
             res.status(200).json({ message: 'Login successful. Redirecting to Home...', token, favorites, history });

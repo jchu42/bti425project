@@ -222,7 +222,7 @@ export default[
             "latitude": 43.642581,
             "longitude": -79.387061
         },
-        "Image": "https://www.juicer.io/api/posts/478051783/images.jpg?external_id=C1j8_kvA79W&s=19433b9f29af00b05f0f14853d11acb6501cf523",
+        "Image": "images\\cntower.jpg",
         "Website link": "https://www.cntower.ca/"
     },
     {

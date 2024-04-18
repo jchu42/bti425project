@@ -15,7 +15,6 @@ const Register = () => {
     const onSubmit = async (data) => {
         try {
             const response = await axios.post('/api/register', data);
-            // console.log(response.data); // Log success message
             setSuccessMessage('Registration successful. Redirecting to login page...');
             // Redirect to login page after 2 seconds
             setTimeout(() => {
@@ -26,10 +25,10 @@ const Register = () => {
             if (error.response && error.response.data.code === 'USER_EXISTS') {
                 setErrorMessage('Username already exists'); // Set error message for existing username
             } else {
-                setErrorMessage('An error occurred. Please try again later.'); // Generic error message
+                setErrorMessage('An error occurred. Please try again later.');
             }
     
-            // Clear error message after 5 seconds
+            // Clear error message after 3 seconds
             setTimeout(() => {
                 setErrorMessage(null);
             }, 3000);
