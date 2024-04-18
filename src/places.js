@@ -222,7 +222,7 @@ export default[
             "latitude": 43.642581,
             "longitude": -79.387061
         },
-        "Image": "images\\cntower.jpg",
+        "Image": "\/images\/cntower.jpg",
         "Website link": "https://www.cntower.ca/"
     },
     {
@@ -327,7 +327,7 @@ export default[
             "latitude": 43.737737,
             "longitude": -79.793755
         },
-        "Image": "images\\treetoptrekking.jpg",
+        "Image": "\/images\/treetoptrekking.jpg",
         "Website link": "https://treetoptrekking.com/parks/brampton"
     },
     {
