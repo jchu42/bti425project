@@ -28,10 +28,6 @@ const CategoryCard = ({ categoryInformation }) => {
           </p>
         </div>
       </div>
-{/*<Card style={{ width: '18rem' }}>
-      <Card.Body>
-        <Card.Text><Button onClick={()=>setSearchQuery(categoryInformation.Description)} variant="danger">{categoryInformation.Description}</Button></Card.Text>
-      </Card.Body> */}
     </Card>
   );
 };

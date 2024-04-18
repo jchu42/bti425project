@@ -1,5 +1,5 @@
 .card {
-    /* width: 50rem; */
+    width: auto;
     margin-bottom: 20px;
     margin-top: 20px;
     transition: transform 0.3s ease-in-out;
