@@ -73,6 +73,7 @@ export default function MyApp({ Component, pageProps }) {
         <footer style={{ position: "fixed", bottom: 0, width:"100%" }}>
           <nav className={styles.navbar}>
             <Container style={{ height: '37px'}}>
+              <span style={{color:"white"}}>&copy;Almas Zahra and Joseph Chu 2024</span>
               <Button href="/contactus" variant="warning" style={{ float: 'right' }}>Contact Us</Button>
             </Container>
           </nav>
